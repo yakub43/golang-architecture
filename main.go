@@ -19,7 +19,7 @@ func main() {
 		First: "James",
 	}
 
-	xp := []person{p1, p2}
+	xp := []person{p1, p2} 
 
 	bs, err := json.Marshal(xp)
 
@@ -27,5 +27,14 @@ func main() {
 		log.Panic(err)
 	}
 
-	fmt.Println(string(bs))
+	fmt.Println("PRINT JSON",string(bs))
+
+	xp2 := []person{}
+
+	err = json.Unmarshal(bs, &xp2)
+	if err!= nil {
+		log.Panic(err)
+	}
+
+	fmt.Println(xp2)
 }
